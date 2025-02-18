@@ -62,7 +62,7 @@ export default function Cart() {
             <div className="flex justify-between">
               <h2>Total Cart Price : <span  className="text-main">{cartData.totalCartPrice}</span></h2>
 
-              <Link to={'/ShippingDetails/'+cartData._id} className="text-center"><button className="bg-blue-700 rounded p-1.5 text-white cursor-pointer">Check Out</button></Link>
+              <Link to={'/ShippingDetails/'+cartData?._id} className="text-center"><button className="bg-blue-700 rounded p-1.5 text-white cursor-pointer">Check Out</button></Link>
             </div>
             <div className="divide-y-2 divide-gray-300">
               {cartData.products.map((item) => {
@@ -101,7 +101,7 @@ export default function Cart() {
             <div className="flex justify-between">
               <h2 >Total Cart Price : <span className="text-main">0</span></h2>
 
-              <Link to={'/ShippingDetails/'+cartData._id} className="text-center"><button className="bg-blue-700 rounded p-1.5 text-white cursor-pointer">Check Out</button></Link>
+              <Link to={'/ShippingDetails/'+cartData?._id} className="text-center"><button className="bg-blue-700 rounded p-1.5 text-white cursor-pointer">Check Out</button></Link>
               </div>
             <div className="flex justify-center">
               <button onClick={clearItems} className=" text-black border-active border px-2 py-1 rounded cursor-pointer"> Clear Your Cart</button>

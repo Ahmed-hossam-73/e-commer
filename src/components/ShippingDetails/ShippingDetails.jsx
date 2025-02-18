@@ -1,30 +1,43 @@
 import axios from 'axios'
 import { useFormik } from 'formik'
-import React from 'react'
 import { useParams } from 'react-router-dom'
+import * as Yup from 'yup'
 
 export default function ShippingDetails() {
+    let { id } = useParams()
     const headerOptions ={
         headers:{
             token:localStorage.getItem('token')
         },
     }
-    let { id } = useParams()
+    let validYup = Yup.object({
+        city: Yup.string().required('City is required').matches(/^[A-Za-zÀ-ÖØ-öø-ÿ\s'-]+$/, 'Enter a valid city name'),
+            phone: Yup.string().required("Phone Required").matches(/^(20)?01[1250][0-9]{8}$/, 'Enter Valid Phone Number'),
+            details: Yup.string().required('Payment details are required').matches(/^[a-zA-Z0-9\s-.,]+$/, 'Enter valid payment details'),
+              })
     let shippingFormik = useFormik({
         initialValues: {
             city: '',
             details: '',
             phone: '',
         },
-        onSubmit: checkOutSession
+        onSubmit: checkOutSession,
+        validationSchema: validYup,
     })
     function checkOutSession(values) {
+        console.log(values);
+        
         let data ={
             shippingAddress:values
         }
-        axios.post(`https://ecommerce.routemisr.com/api/v1/orders/checkout-session/66c91634ed0dc0016c217bb3?url=http://localhost:3000`,data,headerOptions)
+        axios.post(`https://ecommerce.routemisr.com/api/v1/orders/checkout-session/67b47b40851e223def98613c?url=http://localhost:3000`,data,headerOptions)
         .then((req)=>{
+            console.log(req);
+            
             window.open(req.data.session.url)
+        }).catch((err)=>{
+            console.log(err);
+            
         })
     }
     return (

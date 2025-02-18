@@ -45,13 +45,13 @@ export default function Home() {
   function addWish(id) {
     let updatedWishList;
     addUserWish(id)
-    .then((req) => {
-      setWishList([...wishList, id]);
-      toast.success(req.data.message);
-    })
-    .catch((err) => {
-      toast.error(err.response.data.message);
-    });
+      .then((req) => {
+        setWishList([...wishList, id]);
+        toast.success(req.data.message);
+      })
+      .catch((err) => {
+        toast.error(err.response.data.message);
+      });
     if (wishList.includes(id)) {
       updatedWishList = wishList.filter((item) => item !== id);
       toast.success("Removed from wishlist");
@@ -107,8 +107,7 @@ export default function Home() {
                         Add To Cart
                       </button>
                       <i
-                        className={`fa-solid fa-heart cursor-pointer ${wishList.includes(_id) ? "text-main" : ""
-                          }`}
+                        className={`fa-solid fa-heart cursor-pointer ${wishList.includes(_id) ? "text-main" : "text-black"}`}
                         onClick={() => addWish(_id)}
                       ></i>
                     </div>

@@ -58,7 +58,7 @@ export default function ForgetPassword() {
         <>
             {formDisplay ? (
                 <div>
-                    <h2>Forget Password</h2>
+                    <h2 className="w-7/12 mx-auto text-4xl mb-2">please enter your verification code</h2>
 
                     {errorMessage ? (
                         <div
@@ -87,7 +87,7 @@ export default function ForgetPassword() {
                                 id="email"
                                 name="email"
                                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                placeholder="name@flowbite.com"
+                                placeholder="Email"
                             />
                             {ForgetForm.touched.email && ForgetForm.errors.email ? (
                                 <p className="text-red-950">{ForgetForm.errors.email}</p>

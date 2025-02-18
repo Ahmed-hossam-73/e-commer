@@ -4,7 +4,7 @@ import { WishContext } from "../../Context/WishListContextProvider";
 
 export default function WishList() {
   let { getUserWish, deleteUserWish } = useContext(WishContext);
-  let [WishData, setWishData] = useState([]); // ✅ Initialize as an array
+  let [WishData, setWishData] = useState([]); 
   let [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -15,35 +15,28 @@ export default function WishList() {
     setLoading(true);
     getUserWish()
       .then((res) => {
-        console.log("API Response:", res.data); // ✅ Debugging
-        setWishData(res.data.data || []); // ✅ Extract the correct array
+        console.log("API Response:", res.data);
+        setWishData(res.data.data || []); 
         setLoading(false);
       })
       .catch((err) => {
         console.error("Error fetching wishlist:", err);
-        setWishData([]); // ✅ Prevents crashes
+        setWishData([]); 
         setLoading(false);
       });
   }
 
   function removeItem(id) {
     deleteUserWish(id)
-      .then((res) => {
-        setWishData(res.data.data || []); // ✅ Update wishlist state
+      .then(() => {
+        setWishData((prevWishData) => prevWishData.filter(item => item._id !== id));
         toast.success("Product Deleted");
-  
-        // Remove "text-main" class from heart icon
-        let heartIcon = document.getElementById(`heart-${id}`);
-        if (heartIcon) {
-          heartIcon.classList.remove("text-main");
-        }
       })
       .catch((err) => {
         console.error("Error deleting item:", err);
         toast.error("Failed to delete product");
       });
   }
-  
 
   if (loading) {
     return (

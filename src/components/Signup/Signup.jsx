@@ -41,7 +41,7 @@ export default function Signup() {
   }
   return (
     <div>
-      <h2>Register Now</h2>
+      <h2 className="w-7/12 mx-auto text-4xl mb-2">Register Now</h2>
 
       {errorMessage ?
       <div className="p-4 mb-4 w-1/2 mx-auto text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">

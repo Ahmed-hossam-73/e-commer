@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Encode+Sans+Expanded:wght@300&display=swap');
+@import "tailwindcss";
+@theme {
+  --color-active: #0aad0a;
+  --color-main:#0aad0a;
+}
+
+:root
+{
+    --main-color:#0aad0a;
+    --light-color:#f0f3f2;
+    --shadow: rgba(145,158,171,.2) 0px 2px 4px -1px,rgba(145,158,171,.14) 0px 4px 5px 0px,rgba(145,158,171,.12) 0px 1px 10px 0px;
+    --font-family:'Encode Sans Expanded', sans-serif;
+    --rating-color:#ffc908;
+}
+
+body{
+    font-family: var(--font-family) !important;
+}
+.active{
+  color: var(--main-color);
+}
+.btn{
+  @apply bg-main w-full text-white p-2 rounded hover:bg-green-600
+}
+.loader {
+          border: 24px solid #FFF;
+          border-color: var(--main-color) var(--main-color) #fff #fff;
+          border-radius: 50%;
+          position: relative;
+          animation: rotate 1s linear infinite
+        }
+
+        .loader:before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            transform: translate(-50% , -125%);
+            left: 50%;
+            width: 12px;
+            height: 12px;
+            background: #fff;
+            border-radius: 50%;
+          }
+        @keyframes rotate {
+          100%   { transform: rotate(360deg)}
+        }

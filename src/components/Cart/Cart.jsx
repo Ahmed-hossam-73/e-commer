@@ -2,6 +2,7 @@ import toast, { Toaster } from "react-hot-toast";
 import { CartContext } from "../../Context/CartContextProvider.jsx";
 import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { FadeLoader } from "react-spinners";
 export default function Cart() {
   let { getUserCart, deleteUserCart, clearUserCart, setNumsCartItems, updateCartItemCount } = useContext(CartContext)
   let [cartData, setCartData] = useState(null)
@@ -47,20 +48,21 @@ export default function Cart() {
   }
   if (loading) {
     return <div className='bg-slate-300 flex justify-center items-center h-screen' >
-      <span className="loader" />
+      <FadeLoader/>
     </div>
   }
   return (
     <>
       <Toaster />
       {
-        cartData?.products.length > 0 ? <div className="w-10/12 mx-auto my-5">
-          <div className="bg-gray-200">
+        cartData?.products.length > 0 ?
+         <div className="w-8/12 mx-auto my-5">
+          <div className="bg-gray-200 p-6">
             <h1 className="text-2xl">Shop Cart</h1>
             <div className="flex justify-between">
-              <h2 className="text-2xl text-main">Total Cart Price : {cartData.totalCartPrice}EGP</h2>
+              <h2>Total Cart Price : <span  className="text-main">{cartData.totalCartPrice}</span></h2>
 
-              <button onClick={clearItems} className="bg-red-600 text-white px-3 py-2 rounded">Clear Cart</button>
+              <Link to={'/ShippingDetails/'+cartData._id} className="text-center"><button className="bg-blue-700 rounded p-1.5 text-white cursor-pointer">Check Out</button></Link>
             </div>
             <div className="divide-y-2 divide-gray-300">
               {cartData.products.map((item) => {
@@ -88,10 +90,24 @@ export default function Cart() {
                 </div>
               })}
             </div>
-            <Link to={'/ShippingDetails/'+cartData._id} className="btn block text-center">Pay <i className="fa-brands fa-cc-visa"></i></Link>
+            <div className="flex justify-center">
+            <button onClick={clearItems} className=" text-black border-active border px-2 py-1 rounded cursor-pointer "> Clear Your Cart</button>
+            </div>
           </div>
         </div> :
-          <div className="bg-red-400 text-center">No Data</div>
+          <div className="w-8/12 mx-auto my-5">
+          <div className="bg-gray-200 p-6">
+            <h1 className="text-2xl">Shop Cart</h1>
+            <div className="flex justify-between">
+              <h2 >Total Cart Price : <span className="text-main">0</span></h2>
+
+              <Link to={'/ShippingDetails/'+cartData._id} className="text-center"><button className="bg-blue-700 rounded p-1.5 text-white cursor-pointer">Check Out</button></Link>
+              </div>
+            <div className="flex justify-center">
+              <button onClick={clearItems} className=" text-black border-active border px-2 py-1 rounded cursor-pointer"> Clear Your Cart</button>
+            </div>
+          </div>
+        </div>
       }
     </>
   )

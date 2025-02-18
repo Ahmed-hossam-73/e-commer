@@ -1,10 +1,11 @@
+import { FadeLoader } from 'react-spinners';
 import useApi from '../../Context/Hooks/useApi'
 
 export default function Brands() {
      let {data,isLoading}=useApi('brands')
       if(isLoading){
           return <div className='bg-slate-300 flex justify-center items-center h-screen' >
-          <span className="loader" />
+          <FadeLoader/>
           </div>
       }
     return (

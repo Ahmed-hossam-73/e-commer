@@ -1,10 +1,11 @@
+import { FadeLoader } from 'react-spinners';
 import useApi from '../../Context/Hooks/useApi'
 
 export default function Category() {
     let {data,isLoading}=useApi('categories')
     if(isLoading){
         return <div className='bg-slate-300 flex justify-center items-center h-screen' >
-        <span className="loader" />
+        <FadeLoader/>
         </div>
     }
   return (

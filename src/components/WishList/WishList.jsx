@@ -1,6 +1,7 @@
 import { toast, Toaster } from "react-hot-toast";
 import { useContext, useEffect, useState } from "react";
 import { WishContext } from "../../Context/WishListContextProvider";
+import { FadeLoader } from "react-spinners";
 
 export default function WishList() {
   let { getUserWish, deleteUserWish } = useContext(WishContext);
@@ -41,7 +42,7 @@ export default function WishList() {
   if (loading) {
     return (
       <div className="bg-slate-300 flex justify-center items-center h-screen">
-        <span className="loader" />
+        <FadeLoader/>
       </div>
     );
   }

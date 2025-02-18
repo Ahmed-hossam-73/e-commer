@@ -51,30 +51,32 @@ export default function Signup() {
       <form onSubmit={registerForm.handleSubmit} className="w-7/12 mx-auto">
         <div className="mb-5">
           <label htmlFor="name" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your Name</label>
-          <input type="text" onChange={registerForm.handleChange} onBlur={registerForm.handleBlur} value={registerForm.values.name} id="name" name="name" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@flowbite.com" />
+          <input type="text" onChange={registerForm.handleChange} onBlur={registerForm.handleBlur} value={registerForm.values.name} id="name" name="name" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Name" />
           {registerForm.touched.name && registerForm.errors.name ? <p className="text-red-950">{registerForm.errors.name}</p> : ''}
         </div>
         <div className="mb-5">
           <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your Email</label>
-          <input type="email" onChange={registerForm.handleChange} onBlur={registerForm.handleBlur} value={registerForm.values.email} id="email" name="email" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@flowbite.com" />
+          <input type="email" onChange={registerForm.handleChange} onBlur={registerForm.handleBlur} value={registerForm.values.email} id="email" name="email" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Email" />
           {registerForm.touched.email && registerForm.errors.email ? <p className="text-red-950">{registerForm.errors.email}</p> : ''}
         </div>
         <div className="mb-5">
           <label htmlFor="password" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your Password</label>
-          <input type="password" onChange={registerForm.handleChange} onBlur={registerForm.handleBlur} value={registerForm.values.password} id="password" name="password" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@flowbite.com" />
+          <input type="password" onChange={registerForm.handleChange} onBlur={registerForm.handleBlur} value={registerForm.values.password} id="password" name="password" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Password" />
           {registerForm.touched.password && registerForm.errors.password ? <p className="text-red-950">{registerForm.errors.password}</p> : ''}
         </div>
         <div className="mb-5">
           <label htmlFor="rePassword" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your rePassword</label>
-          <input type="password" onChange={registerForm.handleChange} onBlur={registerForm.handleBlur} value={registerForm.values.rePassword} id="rePassword" name="rePassword" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@flowbite.com" />
+          <input type="password" onChange={registerForm.handleChange} onBlur={registerForm.handleBlur} value={registerForm.values.rePassword} id="rePassword" name="rePassword" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Repassword" />
           {registerForm.touched.rePassword && registerForm.errors.rePassword ? <p className="text-red-950">{registerForm.errors.rePassword}</p> : ''}
         </div>
         <div className="mb-5">
           <label htmlFor="phone" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your Phone</label>
-          <input type="tel" onChange={registerForm.handleChange} onBlur={registerForm.handleBlur} value={registerForm.values.phone} id="phone" name="phone" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@flowbite.com" />
+          <input type="tel" onChange={registerForm.handleChange} onBlur={registerForm.handleBlur} value={registerForm.values.phone} id="phone" name="phone" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Phone" />
           {registerForm.touched.phone && registerForm.errors.phone ? <p className="text-red-950">{registerForm.errors.phone}</p> : ''}
         </div>
-        <button disabled={!(registerForm.isValid && registerForm.dirty)} type="submit" className="text-white bg-active hover:bg-active focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-active dark:hover:bg-active dark:focus:ring-blue-800 disabled:border-active disabled:opacity-25">Submit</button>
+        <div className="flex justify-end">
+        <button disabled={!(registerForm.isValid && registerForm.dirty)} type="submit"  className=" disabled:border-black disabled:border-2 disabled:bg-white disabled:text-btn focus:ring-4 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center bg-active text-white disabled:opacity-40">register now</button>
+        </div>
       </form>
 
 

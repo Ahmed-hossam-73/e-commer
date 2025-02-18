@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 import { CartContext } from '../../Context/CartContextProvider';
 import toast, { Toaster } from 'react-hot-toast';
+import { FadeLoader } from 'react-spinners';
 
 export default function Home() {
   let { addUserCart, setNumsCartItems } = useContext(CartContext)
@@ -30,14 +31,14 @@ export default function Home() {
     <>
       <Toaster />
       {isLoading ? <div className='bg-slate-300 flex justify-center items-center h-screen' >
-        <span className="loader" />
+        <FadeLoader/>
       </div> : <div className='w-10/12 mx-auto my-6' >
         <div className='flex flex-wrap space-x-8 space-y-4'>
           {data?.data?.data?.map((Product) => {
             let { _id, title, imageCover, price, category, ratingsAverage } = Product
             let { name } = category
             return <div key={_id} className='lg:w-2/12 md:w-3/12 sm:w-6/12 w-full px-2 mb-3'>
-              <div className='item group overflow-hidden hover:border hover:border-main p-2'>
+              <div className='item group overflow-hidden p-2 hover:shadow-2xl'>
                 <Link to={`ProductDetails/${_id}`}>
                   <img src={imageCover} alt={title} className='w-full' />
                   <h5 className='text-main'>{name}</h5>

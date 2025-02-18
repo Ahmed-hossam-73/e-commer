@@ -7,6 +7,7 @@ import { useQuery } from "@tanstack/react-query";
 import { CartContext } from "../../Context/CartContextProvider";
 import toast, { Toaster } from "react-hot-toast";
 import { WishContext } from "../../Context/WishListContextProvider";
+import { FadeLoader } from "react-spinners";
 
 export default function Home() {
   let [page, setPage] = useState(1);
@@ -18,7 +19,7 @@ export default function Home() {
 
   function getAllProducts() {
     return axios.get(
-      `https://ecommerce.routemisr.com/api/v1/products?limit=10&page=${page}`
+      `https://ecommerce.routemisr.com/api/v1/products`
     );
   }
   let { data, isLoading, isError, error } = useQuery({
@@ -70,7 +71,7 @@ export default function Home() {
       <Toaster />
       {isLoading ? (
         <div className="bg-slate-300 flex justify-center items-center h-screen">
-          <span className="loader" />
+          <FadeLoader/>
         </div>
       ) : (
         <div className="w-10/12 mx-auto my-6">
@@ -86,7 +87,7 @@ export default function Home() {
                   key={_id}
                   className="lg:w-2/12 md:w-3/12 sm:w-6/12 w-full px-2 mb-3"
                 >
-                  <div className="item group overflow-hidden hover:border hover:border-main p-2">
+                  <div className="item group overflow-hidden hover:shadow-2xl p-2">
                     <Link to={`ProductDetails/${_id}`}>
                       <img src={imageCover} alt={title} className="w-full" />
                       <h5 className="text-main">{name}</h5>
@@ -116,42 +117,6 @@ export default function Home() {
               );
             })}
           </div>
-
-          <nav aria-label="Page navigation example">
-            <ul className="flex items-center justify-center -space-x-px h-8 text-sm">
-              <li>
-                <a
-                  href="#"
-                  className="flex items-center justify-center px-3 h-8 ms-0 leading-tight text-gray-500 bg-white border border-e-0 border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-                >
-                  Previous
-                </a>
-              </li>
-              {new Array(data?.data?.metadata?.numberOfPages)
-                .fill("")
-                .map((el, i) => {
-                  return (
-                    <li onClick={getPageNumber} key={el}>
-                      <a
-                        href="#"
-                        page={i + 1}
-                        className="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-                      >
-                        {i + 1}
-                      </a>
-                    </li>
-                  );
-                })}
-              <li>
-                <a
-                  href="#"
-                  className="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-                >
-                  Next
-                </a>
-              </li>
-            </ul>
-          </nav>
         </div>
       )}
     </>

@@ -3,13 +3,14 @@
 @theme {
   --color-active: #0aad0a;
   --color-main:#0aad0a;
+  --color-btn:#212529;
 }
 
 :root
 {
     --main-color:#0aad0a;
     --light-color:#f0f3f2;
-    --shadow: rgba(145,158,171,.2) 0px 2px 4px -1px,rgba(145,158,171,.14) 0px 4px 5px 0px,rgba(145,158,171,.12) 0px 1px 10px 0px;
+    --shadow:rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
     --font-family:'Encode Sans Expanded', sans-serif;
     --rating-color:#ffc908;
     --bs-heading-color: inherit;

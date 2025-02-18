@@ -2,7 +2,7 @@
   "name": "e-commerce",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://merna-2.github.io/E-commers",
+  "homepage": "https://Ahmed-hossam-73.github.io/e-commer",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -26,6 +26,7 @@
     "react-hot-toast": "^2.5.2",
     "react-router-dom": "^7.1.5",
     "react-slick": "^0.30.3",
+    "react-spinners": "^0.15.0",
     "slick-carousel": "^1.8.1",
     "yup": "^1.6.1"
   },

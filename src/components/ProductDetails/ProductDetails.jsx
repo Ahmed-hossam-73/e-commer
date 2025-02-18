@@ -4,6 +4,7 @@ import { useContext,} from 'react';
 import { useParams } from 'react-router-dom'
 import { CartContext } from '../../Context/CartContextProvider';
 import toast, { Toaster } from 'react-hot-toast';
+import { FadeLoader } from 'react-spinners';
 
 export default function ProductDetails() {
     let {id} =useParams();
@@ -31,7 +32,7 @@ export default function ProductDetails() {
         <>
         <Toaster></Toaster>
         {isLoading ? <div className='bg-slate-300 flex justify-center items-center h-screen' >
-    <span className="loader" />
+    <FadeLoader/>
     </div>: <div className='w-10/12 mx-auto my-5'>
             <div className='flex justify-between items-center'>
                 <div className='w-3/12'>
